@@ -6,9 +6,9 @@
     "password": "1234",
     "database": "test",
     "synchronize": true,
-    "logging": false,
+    "logging": true,
     "entities": [
-
+        "./src/models/**.ts"
     ],
     "migrations": [
         "./src/database/migrations/**.ts"
