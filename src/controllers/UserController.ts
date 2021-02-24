@@ -1,13 +1,13 @@
-import { Request, response, Response } from 'express';
-import { getRepository } from 'typeorm';
-import { User } from '../models/User';
+import { Request, Response } from 'express';
+import { getCustomRepository } from 'typeorm';
+import { UsersRepository } from '../repositories/UsersRepository';
 class UserController {
 
     async create(req: Request, res: Response) {        
         const { name, email } = req.body;
 
         // 'Repository' is like a "method that give permission" for a model interact with database'
-        const usersRepository = getRepository(User);
+        const usersRepository = getCustomRepository(UsersRepository);
 
         // SELECT * FROM USERS WHERE EMAIL = body.EMAIL limit 1;
         const usersAlreadyExists = await usersRepository.findOne({
